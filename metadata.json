@@ -10,12 +10,10 @@
   "checksums": {
     "Modulefile": "5e6cf0fd0457ad563cf3ca5689441f6a",
     "README.markdown": "d72e4af993f94db6c0bda93e74b6c418",
-    "README.md": "cff360ff0eb343536a59c5d8838de1cc",
     "Rakefile": "f37e6131fe7de9a49b09d31596f5fbf1",
     "files\\config.erb": "ecc0ac03ec91325bea7d7fcae76e3452",
     "files\\config.erb.$$$": "d41d8cd98f00b204e9800998ecf8427e",
     "lib\\puppet\\provider\\inline_template\\inline_template.rb": "25e19865a6008ba43cc3c622320535ec",
-    "lib\\puppet\\provider\\inline_template\\process_template.rb": "f518c8b87dd84fd9ab46ecf22df6437d",
     "lib\\puppet\\type\\inline_template.rb": "57fd65e911b8e6617913bb5431bf8d19",
     "manifests\\init.pp": "55f06ed911caa7e6de106fb7c0d623d1",
     "spec\\spec.opts": "a600ded995d948e393fbe2320ba8e51c",
