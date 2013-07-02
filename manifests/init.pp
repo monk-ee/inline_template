@@ -1,5 +1,5 @@
 # Class: inline_template
-# 
+#
 # Supported Platforms
 # The module has been tested on the following operating systems. Testing and patches for other platforms are welcomed.
 #
@@ -32,16 +32,39 @@ class inline_template {
     config_two => 'config2'
   }
 
-  file { "/tmp/config.erb":
-    ensure => present,
-    source => "puppet:///modules/inline_template/config.erb",
-    notify => Inline_template["/tmp/config.example"],
+  case $operatingsystem {
+    'Solaris'           : {
+      $local_template = "/tmp/config.erb"
+      $local_output = "/tmp/config.example"
+    }
+    # apply the solaris class
+    'RedHat', 'CentOS'  : {
+      $local_template = "/tmp/config.erb"
+      $local_output = "/tmp/config.example"
+    }
+    # apply the redhat class
+    /^(Debian|Ubuntu)$/ : {
+      $local_template = "/tmp/config.erb"
+      $local_output = "/tmp/config.example"
+    }
+    # apply the debian class
+    default             : {
+      $local_template = "C:/Windows/Temp/config.erb"
+      $local_output = "C:/Windows/Temp/config.example"
+    }
+    # apply the generic class which in this case is windows - a bit dumb but reliable
   }
 
-  inline_template { "/tmp/config.example":
+  file { $local_template:
+    ensure => present,
+    source => "puppet:///modules/inline_template/config.erb",
+    notify => Inline_template[$local_output],
+  }
+
+  inline_template { $local_output:
     ensure        => present,
-    source        => "/tmp/config.erb",
+    source        => $local_template,
     configuration => $config_hash,
-    require       => File["/tmp/config.erb"],
+    require       => File[$local_template],
   }
 }
