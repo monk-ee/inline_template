@@ -24,6 +24,13 @@ A string or hash to pass through to the provider/type eg.
     	configuration => $config_hash,
   	}
 
+# Sample ERB #
+	# This configuration file is managed by puppet
+	# Filepath <%= resource[:name] %>
+	config_value_one = <%= resource[:configuration]["config_one"] %>
+	config_value_two = <%= resource[:configuration]["config_two"] %>
+
+
 # License #
 Copyright (c) 2012-2013 Talk to The Aliens Pty Ltd, 2013
 
