@@ -1,5 +1,5 @@
 name 'monkee-inline_template'
-version '0.1.0'
+version '0.2.0'
 
 author 'Lyndon Swan'
 license 'This script is licensed under the Apache License, Version 2.0.'
@@ -36,4 +36,8 @@ eg. $config_hash = { config_one => \'config1\', config_two => \'config2\' }
     ensure  => present,
     source  => "/etc/config/config.erb",
     configuration => $config_hash,
-  }'
+  }
+
+#Versions#
+0.1.0 initial release
+0.2.0 fixed the markdown on the readme, added windows support to the example'

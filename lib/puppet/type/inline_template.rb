@@ -8,8 +8,18 @@ Puppet::Type.newtype(:inline_template) do
   newparam :source do
     desc "The local filesystem source of the Local Template"
   end
+  
+  # @todo implement modes - including windows mode mapping
+  #newparam :mode do
+  #  desc "The local filesystem product permissions mode"
+  #end
  
-   newparam :configuration do
+  ## @todo implement owner - including windows owner mapping
+  #newparam :owner do
+  #  desc "The local filesystem product owner"
+  #end
+   
+  newparam :configuration do
     desc "The local filesystem source of the Local Template"
   end
    
