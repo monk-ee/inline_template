@@ -19,10 +19,15 @@ Puppet::Type.newtype(:inline_template) do
   end
  
   ## @todo implement owner - including windows owner mapping
-  #newparam :owner do
-  #  desc "The local filesystem product owner"
-  #end
-   
+  newparam :owner do
+    desc "The local filesystem product owner"
+  end
+
+  ## @todo implement group - including windows owner mapping
+  newparam :owner do
+    desc "The local filesystem product group"
+  end
+
   newparam :configuration do
     desc "The local filesystem source of the Local Template"
   end
