@@ -18,7 +18,7 @@ Puppet::Type.type(:inline_template).provide(:inline_template) do
 		end
 		#now set mode if it exists
 		if defined? @resource[:mode]
-		    File.chmod("#{@resource[:mode]}","#{@resource[:name]}","out")
+		    File.chmod(@resource[:mode],"#{@resource[:name]}","out")
 		end
 
 
