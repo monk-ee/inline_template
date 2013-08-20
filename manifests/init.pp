@@ -23,6 +23,7 @@
 #   inline_template { "/etc/config/example.conf":
 #    ensure  => present,
 #    source  => "/etc/config/config.erb",
+#    mode    => 0644,
 #    configuration => $config_hash,
 #  }
 #
