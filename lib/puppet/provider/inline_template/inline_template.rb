@@ -19,7 +19,12 @@ Puppet::Type.type(:inline_template).provide(:inline_template) do
 		#now set mode if it exists
 		unless defined?(@resource[:mode])
 		    File.chmod(@resource[:mode],"#{@resource[:name]}","out")
-		end
+    end
+    #now set owner if it exists
+    #only supports integers
+    #unless defined?(@resource[:owner]) && defined?(@resource[:group])
+    #  File.chown(@resource[:owner],@resource[:group],"#{@resource[:name]}")
+    #end
 	end
 	
 	def destroy
