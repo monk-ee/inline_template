@@ -16,6 +16,12 @@ Puppet::Type.type(:inline_template).provide(:inline_template) do
 		File.open("#{@resource[:name]}", "w") do |file|
   			file.puts template_content
 		end
+		#now set mode if it exists
+		if defined? #{@resource[:mode]}
+		    File.chmod("#{@resource[:mode]}","#{@resource[:name]}","out")
+		end
+
+
 	end
 	
 	def destroy
