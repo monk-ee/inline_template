@@ -66,8 +66,6 @@ class inline_template {
     source        => $local_template,
     configuration => $config_hash,
     mode          => 0644,
-    owner         => 'www-data',
-    group         => 'www-data',
     require       => File[$local_template],
   }
 }
