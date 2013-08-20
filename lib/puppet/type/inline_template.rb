@@ -24,7 +24,9 @@ Puppet::Type.newtype(:inline_template) do
   end
 
   ## @todo implement group - including windows owner mapping
-  newparam :owner do
+  # On Windows, a user (such as “Administrator”) can be set as a file’s group and a group (such as “Administrators”)
+  # can be set as a file’s owner; however, a file’s owner and group shouldn’t be the same.
+  newparam :group do
     desc "The local filesystem product group"
   end
 
