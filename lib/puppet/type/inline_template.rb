@@ -28,6 +28,12 @@ Puppet::Type.newtype(:inline_template) do
   #read-only for all others. The only change that can be made is to make the file read-only, which is reported as 0444.
   newparam :mode do
     desc "The local filesystem product permissions mode"
+
+    validate do |value|
+      unless value =~ /^[0-9]{4}/
+        raise ArgumentError , "%s is not a valid file mode" % value
+      end
+    end
   end
 
   ## @todo implement owner - including windows owner mapping
