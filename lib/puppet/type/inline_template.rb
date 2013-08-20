@@ -5,7 +5,7 @@ Puppet::Type.newtype(:inline_template) do
     desc "The local filesystem product of the Local Template"
     #/^([a-zA-Z]:(\\\w+)*([\\]|[.][a-zA-Z]+)?$
     validate do |value|
-      unless value =~ /^[a-zA-Z0-9._:\\\/]+/
+      unless value =~ /^[a-zA-Z0-9.\-_:\\\/]+/
         raise ArgumentError , "%s is not a valid file path" % value
       end
     end
@@ -15,7 +15,7 @@ Puppet::Type.newtype(:inline_template) do
     desc "The local filesystem source of the Local Template"
 
     validate do |value|
-      unless value =~ /^[a-zA-Z0-9._:\\\/]+/
+      unless value =~ /^[a-zA-Z0-9.\-_:\\\/]+/
         raise ArgumentError , "%s is not a valid file path" % value
       end
     end
